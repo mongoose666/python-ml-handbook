@@ -1,0 +1,261 @@
+/* Nordic theme for WeasyPrint PDF output */
+:root {
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+
+  --snow0: #d8dee9;
+  --snow1: #e5e9f0;
+  --snow2: #eceff4;
+
+  --frost0: #8fbcbb;
+  --frost1: #88c0d0;
+  --frost2: #81a1c1;
+  --frost3: #5e81ac;
+
+  --aurora-red: #bf616a;
+  --aurora-orange: #d08770;
+  --aurora-yellow: #ebcb8b;
+  --aurora-green: #a3be8c;
+  --aurora-purple: #b48ead;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 20mm 16mm;
+  background: var(--nord0);
+}
+
+@page :first {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--nord0);
+  color: var(--snow0);
+  font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Cover page */
+body > h1:first-of-type {
+  page-break-before: always;
+  page-break-after: always;
+  min-height: 100vh;
+  margin: 0;
+  padding: 38vh 10vw 0;
+  font-size: 34pt;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--snow2);
+  background: linear-gradient(145deg, var(--nord0), var(--nord1), var(--nord2));
+  border-bottom: 4mm solid var(--frost3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--snow2);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.2em;
+  margin-bottom: 0.55em;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 2.1em;
+  border-bottom: 1px solid var(--nord3);
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: var(--frost1);
+  border-bottom: 1px solid var(--nord3);
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.2em;
+  color: var(--frost2);
+}
+
+h4 {
+  color: var(--frost0);
+}
+
+p,
+li,
+td,
+th,
+blockquote {
+  color: var(--snow0);
+}
+
+a {
+  color: var(--frost1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--frost0);
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--nord3);
+  margin: 1.2em 0;
+}
+
+/* TOC styling */
+h2 + ul,
+h2 + ol {
+  background: var(--nord1);
+  border: 1px solid var(--nord3);
+  border-radius: 8px;
+  padding: 0.9em 1.1em 0.9em 1.8em;
+}
+
+h2 + ul li,
+h2 + ol li {
+  margin: 0.22em 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--frost3);
+  padding: 0.35em 0.9em;
+  margin: 0.8em 0;
+  background: var(--nord1);
+}
+
+code {
+  font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--aurora-yellow);
+  background: var(--nord1);
+  border: 1px solid var(--nord3);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+}
+
+pre {
+  background: var(--nord1);
+  color: var(--snow1);
+  border: 1px solid var(--nord3);
+  border-left: 4px solid var(--frost2);
+  border-radius: 8px;
+  padding: 0.9em 1em;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: var(--snow1);
+}
+
+/* Lightweight syntax-like token coloring by language-agnostic selectors */
+pre .kw,
+pre .k,
+pre .keyword {
+  color: var(--frost1);
+}
+
+pre .fn,
+pre .nf,
+pre .function {
+  color: var(--frost0);
+}
+
+pre .st,
+pre .s,
+pre .string {
+  color: var(--aurora-green);
+}
+
+pre .co,
+pre .c,
+pre .comment {
+  color: var(--nord3);
+  font-style: italic;
+}
+
+ul,
+ol {
+  padding-left: 1.4em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  page-break-inside: avoid;
+  font-size: 0.96em;
+}
+
+thead {
+  background: var(--nord2);
+}
+
+th,
+td {
+  border: 1px solid var(--nord3);
+  padding: 0.52em 0.65em;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--nord1);
+}
+
+tbody tr:nth-child(even) {
+  background: #364051;
+}
+
+img,
+svg,
+figure {
+  max-width: 100%;
+  page-break-inside: avoid;
+}
+
+/* Better section separation */
+h2 {
+  page-break-before: auto;
+}
+
+/* Print-friendly tweaks */
+@media print {
+  a {
+    text-decoration: none;
+  }
+
+  pre,
+  table,
+  blockquote {
+    page-break-inside: avoid;
+  }
+}

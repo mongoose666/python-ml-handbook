@@ -1,0 +1,40 @@
+from: markdown
+to: pdf
+pdf-engine: xelatex
+standalone: true
+table-of-contents: true
+number-sections: false
+colorlinks: true
+linkcolor: "88C0D0"
+urlcolor: "81A1C1"
+toccolor: "88C0D0"
+geometry:
+  - margin=1in
+fontsize: 11pt
+linestretch: 1.2
+variables:
+  documentclass: article
+  mainfont: DejaVu Sans
+  monofont: DejaVu Sans Mono
+  sansfont: DejaVu Sans
+  fontsize: 11pt
+  papersize: a4
+header-includes:
+  - |
+    \\usepackage{xcolor}
+    \\definecolor{NordBg}{HTML}{2E3440}
+    \\definecolor{NordText}{HTML}{D8DEE9}
+    \\definecolor{NordAccentA}{HTML}{88C0D0}
+    \\definecolor{NordAccentB}{HTML}{81A1C1}
+    \\definecolor{NordAccentC}{HTML}{5E81AC}
+    \\definecolor{NordBlock}{HTML}{3B4252}
+    \\pagecolor{NordBg}
+    \\color{NordText}
+  - |
+    \\usepackage{sectsty}
+    \\sectionfont{\\color{NordAccentA}}
+    \\subsectionfont{\\color{NordAccentB}}
+    \\subsubsectionfont{\\color{NordAccentC}}
+  - |
+    \\usepackage{fvextra}
+    \\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\\\{\}}
